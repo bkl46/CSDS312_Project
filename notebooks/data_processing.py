@@ -171,8 +171,8 @@ def main():
     args = parser.parse_args()
 
     #default args
-    path = args.input if args.input else "../data/all_songs_data.csv"
-    outpath = args.output if args.output else "../out/processed.csv"
+    path = args.input if args.input else "../data/raw/all_songs_data.csv"
+    outpath = args.output if args.output else "../data/processed/processed.csv"
     skip = args.skip_lang_detect if args.skip_lang_detect else True
     
     df = pd.read_csv(path)
