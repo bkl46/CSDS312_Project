@@ -1,0 +1,615 @@
+hello world
+Traceback (most recent call last):
+  File "/usr/local/bin/pip", line 5, in <module>
+    from pip._internal.cli.main import main
+  File "/usr/lib/python3.6/site-packages/pip/__init__.py", line 46, in <module>
+    from pip.commands import get_summaries, get_similar_commands
+  File "/usr/lib/python3.6/site-packages/pip/commands/__init__.py", line 15, in <module>
+    from pip.commands.install import InstallCommand
+  File "/usr/lib/python3.6/site-packages/pip/commands/install.py", line 12, in <module>
+    import wheel
+  File "/usr/local/lib64/python3.6/site-packages/wheel-0.43.0-py3.6.egg/wheel/__init__.py", line 1
+    from __future__ import annotations
+    ^
+SyntaxError: future feature annotations is not defined
+ok then
+
+🎵🎵🎵🎵🎵🎵🎵🎵🎵🎵🎵🎵🎵🎵🎵🎵🎵🎵🎵🎵🎵🎵🎵🎵🎵🎵🎵🎵🎵🎵
+CSDS312 - PARALLEL SONG ANALYSIS WITH PYSPARK
+Using: TF-IDF, LDA Topic Modeling, K-Means Clustering, Random Forest
+🎵🎵🎵🎵🎵🎵🎵🎵🎵🎵🎵🎵🎵🎵🎵🎵🎵🎵🎵🎵🎵🎵🎵🎵🎵🎵🎵🎵🎵🎵
+
+26/04/24 22:26:32 INFO SparkContext: Running Spark version 3.3.2
+26/04/24 22:26:32 WARN NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+26/04/24 22:26:32 INFO ResourceUtils: ==============================================================
+26/04/24 22:26:32 INFO ResourceUtils: No custom resources configured for spark.driver.
+26/04/24 22:26:32 INFO ResourceUtils: ==============================================================
+26/04/24 22:26:32 INFO SparkContext: Submitted application: CSDS312-Spotify-Lyrics-Analysis
+26/04/24 22:26:32 INFO ResourceProfile: Default ResourceProfile created, executor resources: Map(cores -> name: cores, amount: 1, script: , vendor: , memory -> name: memory, amount: 8192, script: , vendor: , offHeap -> name: offHeap, amount: 0, script: , vendor: ), task resources: Map(cpus -> name: cpus, amount: 1.0)
+26/04/24 22:26:32 INFO ResourceProfile: Limiting resource is cpu
+26/04/24 22:26:32 INFO ResourceProfileManager: Added ResourceProfile id: 0
+26/04/24 22:26:32 INFO SecurityManager: Changing view acls to: bkl46
+26/04/24 22:26:32 INFO SecurityManager: Changing modify acls to: bkl46
+26/04/24 22:26:32 INFO SecurityManager: Changing view acls groups to: 
+26/04/24 22:26:32 INFO SecurityManager: Changing modify acls groups to: 
+26/04/24 22:26:32 INFO SecurityManager: SecurityManager: authentication disabled; ui acls disabled; users  with view permissions: Set(bkl46); groups with view permissions: Set(); users  with modify permissions: Set(bkl46); groups with modify permissions: Set()
+26/04/24 22:26:32 INFO Utils: Successfully started service 'sparkDriver' on port 37405.
+26/04/24 22:26:32 INFO SparkEnv: Registering MapOutputTracker
+26/04/24 22:26:32 INFO SparkEnv: Registering BlockManagerMaster
+26/04/24 22:26:32 INFO BlockManagerMasterEndpoint: Using org.apache.spark.storage.DefaultTopologyMapper for getting topology information
+26/04/24 22:26:32 INFO BlockManagerMasterEndpoint: BlockManagerMasterEndpoint up
+26/04/24 22:26:32 INFO SparkEnv: Registering BlockManagerMasterHeartbeat
+26/04/24 22:26:32 INFO DiskBlockManager: Created local directory at /tmp/blockmgr-6c63f966-f05b-4b30-9bce-8f13607c3720
+26/04/24 22:26:32 INFO MemoryStore: MemoryStore started with capacity 4.1 GiB
+26/04/24 22:26:32 INFO SparkEnv: Registering OutputCommitCoordinator
+26/04/24 22:26:33 INFO Utils: Successfully started service 'SparkUI' on port 4040.
+26/04/24 22:26:33 INFO Executor: Starting executor ID driver on host classct015
+26/04/24 22:26:33 INFO Executor: Starting executor with user classpath (userClassPathFirst = false): ''
+26/04/24 22:26:33 INFO Utils: Successfully started service 'org.apache.spark.network.netty.NettyBlockTransferService' on port 37195.
+26/04/24 22:26:33 INFO NettyBlockTransferService: Server created on classct015:37195
+26/04/24 22:26:33 INFO BlockManager: Using org.apache.spark.storage.RandomBlockReplicationPolicy for block replication policy
+26/04/24 22:26:33 INFO BlockManagerMaster: Registering BlockManager BlockManagerId(driver, classct015, 37195, None)
+26/04/24 22:26:33 INFO BlockManagerMasterEndpoint: Registering block manager classct015:37195 with 4.1 GiB RAM, BlockManagerId(driver, classct015, 37195, None)
+26/04/24 22:26:33 INFO BlockManagerMaster: Registered BlockManager BlockManagerId(driver, classct015, 37195, None)
+26/04/24 22:26:33 INFO BlockManager: Initialized BlockManager: BlockManagerId(driver, classct015, 37195, None)
+============================================================
+STEP 1: Loading and Cleaning Data
+============================================================
+Initial rows: 551,443
+
+Dataset columns:
+  - Artist(s)
+  - song
+  - text
+  - Length
+  - emotion
+  - Genre
+  - Album
+  - Release Date
+  - Key
+  - Tempo
+  - Loudness (db)
+  - Time signature
+  - Explicit
+  - Popularity
+  - Energy
+  - Danceability
+  - Positiveness
+  - Speechiness
+  - Liveness
+  - Acousticness
+  - Instrumentalness
+  - Good for Party
+  - Good for Work/Study
+  - Good for Relaxation/Meditation
+  - Good for Exercise
+  - Good for Running
+  - Good for Yoga/Stretching
+  - Good for Driving
+  - Good for Social Gatherings
+  - Good for Morning Routine
+  - Similar Artist 1
+  - Similar Song 1
+  - Similarity Score 1
+  - Similar Artist 2
+  - Similar Song 2
+  - Similarity Score 2
+  - Similar Artist 3
+  - Similar Song 3
+  - Similarity Score 3
+26/04/24 22:26:41 WARN package: Truncated the string representation of a plan since it was too large. This behavior can be adjusted by setting 'spark.sql.debug.maxToStringFields'.
+
+Final rows: 460,650
+Removed: 90,793
+Unique artists: 108,221
+Time: 36.86s
+
+Sample data:
++------------------+---------+----------+-------+------------+------+
+|song              |Artist(s)|Popularity|Genre  |release_year|decade|
++------------------+---------+----------+-------+------------+------+
+|One Girl / One Boy|!!!      |42.0      |hip hop|2013        |2010s |
+|Pardon My Freedom |!!!      |29.0      |hip hop|2004        |2000s |
+|Freedom 15        |!!!      |30.0      |hip hop|2015        |2010s |
+|Serbia Drums      |!!!      |17.0      |hip hop|2019        |2010s |
+|Slyd              |!!!      |33.0      |hip hop|2013        |2010s |
++------------------+---------+----------+-------+------------+------+
+only showing top 5 rows
+
+
+============================================================
+STEP 2: Lyrics Text Mining with TF-IDF
+============================================================
+Tokenizing lyrics...
+Removing stop words...
+Computing TF-IDF vectors...
+Vocabulary size: 10,000
+Average tokens per song: 169.3
+Average unique tokens per song: 84.8
+TF-IDF computation time: 98.14s
+
+============================================================
+STEP 3: Topic Discovery with LDA
+============================================================
+Training LDA with 10 topics...
+26/04/24 22:28:58 WARN MemoryStore: Not enough space to cache rdd_92_4 in memory! (computed 257.7 MiB so far)
+26/04/24 22:28:58 WARN BlockManager: Persisting block rdd_92_4 to disk instead.
+26/04/24 22:29:00 WARN MemoryStore: Not enough space to cache rdd_92_6 in memory! (computed 317.3 MiB so far)
+26/04/24 22:29:00 WARN BlockManager: Persisting block rdd_92_6 to disk instead.
+26/04/24 22:29:04 WARN MemoryStore: Not enough space to cache rdd_92_3 in memory! (computed 444.7 MiB so far)
+26/04/24 22:29:04 WARN BlockManager: Persisting block rdd_92_3 to disk instead.
+26/04/24 22:29:04 WARN MemoryStore: Not enough space to cache rdd_92_0 in memory! (computed 448.3 MiB so far)
+26/04/24 22:29:04 WARN BlockManager: Persisting block rdd_92_0 to disk instead.
+26/04/24 22:29:04 WARN MemoryStore: Not enough space to cache rdd_92_7 in memory! (computed 442.8 MiB so far)
+26/04/24 22:29:04 WARN BlockManager: Persisting block rdd_92_7 to disk instead.
+26/04/24 22:29:04 WARN MemoryStore: Not enough space to cache rdd_92_1 in memory! (computed 444.7 MiB so far)
+26/04/24 22:29:04 WARN BlockManager: Persisting block rdd_92_1 to disk instead.
+26/04/24 22:29:19 WARN MemoryStore: Not enough space to cache rdd_92_6 in memory! (computed 506.8 MiB so far)
+26/04/24 22:29:19 WARN MemoryStore: Not enough space to cache rdd_92_0 in memory! (computed 448.3 MiB so far)
+26/04/24 22:29:19 WARN MemoryStore: Not enough space to cache rdd_92_3 in memory! (computed 255.4 MiB so far)
+26/04/24 22:29:31 WARN MemoryStore: Not enough space to cache rdd_92_0 in memory! (computed 257.0 MiB so far)
+26/04/24 22:29:31 WARN OnlineLDAOptimizer: The input data is not directly cached, which may hurt performance if its parent RDDs are also uncached.
+26/04/24 22:29:31 WARN MemoryStore: Not enough space to cache rdd_92_0 in memory! (computed 257.0 MiB so far)
+26/04/24 22:29:32 WARN BLAS: Failed to load implementation from: com.github.fommil.netlib.NativeSystemBLAS
+26/04/24 22:29:32 WARN BLAS: Failed to load implementation from: com.github.fommil.netlib.NativeRefBLAS
+26/04/24 22:29:32 WARN MemoryStore: Not enough space to cache rdd_92_6 in memory! (computed 127.4 MiB so far)
+26/04/24 22:29:32 WARN MemoryStore: Not enough space to cache rdd_92_3 in memory! (computed 66.9 MiB so far)
+26/04/24 22:29:32 WARN MemoryStore: Not enough space to cache rdd_92_0 in memory! (computed 129.9 MiB so far)
+26/04/24 22:29:43 WARN MemoryStore: Not enough space to cache rdd_92_0 in memory! (computed 257.0 MiB so far)
+26/04/24 22:29:43 WARN MemoryStore: Not enough space to cache rdd_92_3 in memory! (computed 66.9 MiB so far)
+26/04/24 22:29:43 WARN MemoryStore: Not enough space to cache rdd_92_0 in memory! (computed 129.9 MiB so far)
+26/04/24 22:29:43 WARN MemoryStore: Not enough space to cache rdd_92_6 in memory! (computed 127.4 MiB so far)
+26/04/24 22:29:49 WARN MemoryStore: Not enough space to cache rdd_92_0 in memory! (computed 257.0 MiB so far)
+26/04/24 22:29:49 WARN MemoryStore: Not enough space to cache rdd_92_3 in memory! (computed 66.9 MiB so far)
+26/04/24 22:29:50 WARN MemoryStore: Not enough space to cache rdd_92_6 in memory! (computed 127.4 MiB so far)
+26/04/24 22:29:50 WARN MemoryStore: Not enough space to cache rdd_92_0 in memory! (computed 129.9 MiB so far)
+26/04/24 22:29:55 WARN MemoryStore: Not enough space to cache rdd_92_0 in memory! (computed 257.0 MiB so far)
+26/04/24 22:29:55 WARN MemoryStore: Not enough space to cache rdd_92_3 in memory! (computed 66.9 MiB so far)
+26/04/24 22:29:55 WARN MemoryStore: Not enough space to cache rdd_92_0 in memory! (computed 129.9 MiB so far)
+26/04/24 22:29:55 WARN MemoryStore: Not enough space to cache rdd_92_6 in memory! (computed 127.4 MiB so far)
+26/04/24 22:30:00 WARN MemoryStore: Not enough space to cache rdd_92_0 in memory! (computed 257.0 MiB so far)
+26/04/24 22:30:00 WARN MemoryStore: Not enough space to cache rdd_92_3 in memory! (computed 66.9 MiB so far)
+26/04/24 22:30:00 WARN MemoryStore: Not enough space to cache rdd_92_6 in memory! (computed 127.4 MiB so far)
+26/04/24 22:30:00 WARN MemoryStore: Not enough space to cache rdd_92_0 in memory! (computed 129.9 MiB so far)
+26/04/24 22:30:04 WARN MemoryStore: Not enough space to cache rdd_92_0 in memory! (computed 257.0 MiB so far)
+26/04/24 22:30:04 WARN MemoryStore: Not enough space to cache rdd_92_6 in memory! (computed 65.8 MiB so far)
+26/04/24 22:30:04 WARN MemoryStore: Not enough space to cache rdd_92_3 in memory! (computed 128.9 MiB so far)
+26/04/24 22:30:04 WARN MemoryStore: Not enough space to cache rdd_92_0 in memory! (computed 129.9 MiB so far)
+26/04/24 22:30:09 WARN MemoryStore: Not enough space to cache rdd_92_0 in memory! (computed 257.0 MiB so far)
+26/04/24 22:30:10 WARN MemoryStore: Not enough space to cache rdd_92_3 in memory! (computed 66.9 MiB so far)
+26/04/24 22:30:10 WARN MemoryStore: Not enough space to cache rdd_92_0 in memory! (computed 129.9 MiB so far)
+26/04/24 22:30:10 WARN MemoryStore: Not enough space to cache rdd_92_6 in memory! (computed 127.4 MiB so far)
+26/04/24 22:30:14 WARN MemoryStore: Not enough space to cache rdd_92_0 in memory! (computed 257.0 MiB so far)
+26/04/24 22:30:14 WARN MemoryStore: Not enough space to cache rdd_92_0 in memory! (computed 67.0 MiB so far)
+26/04/24 22:30:14 WARN MemoryStore: Not enough space to cache rdd_92_3 in memory! (computed 128.9 MiB so far)
+26/04/24 22:30:14 WARN MemoryStore: Not enough space to cache rdd_92_6 in memory! (computed 127.4 MiB so far)
+26/04/24 22:30:18 WARN MemoryStore: Not enough space to cache rdd_92_0 in memory! (computed 257.0 MiB so far)
+26/04/24 22:30:18 WARN MemoryStore: Not enough space to cache rdd_92_0 in memory! (computed 67.0 MiB so far)
+26/04/24 22:30:18 WARN MemoryStore: Not enough space to cache rdd_92_6 in memory! (computed 127.4 MiB so far)
+26/04/24 22:30:18 WARN MemoryStore: Not enough space to cache rdd_92_3 in memory! (computed 128.9 MiB so far)
+26/04/24 22:30:23 WARN MemoryStore: Not enough space to cache rdd_92_0 in memory! (computed 257.0 MiB so far)
+26/04/24 22:30:23 WARN MemoryStore: Not enough space to cache rdd_92_6 in memory! (computed 65.8 MiB so far)
+26/04/24 22:30:23 WARN MemoryStore: Not enough space to cache rdd_92_3 in memory! (computed 128.9 MiB so far)
+26/04/24 22:30:23 WARN MemoryStore: Not enough space to cache rdd_92_0 in memory! (computed 129.9 MiB so far)
+26/04/24 22:30:27 WARN MemoryStore: Not enough space to cache rdd_92_0 in memory! (computed 257.0 MiB so far)
+26/04/24 22:30:27 WARN MemoryStore: Not enough space to cache rdd_92_0 in memory! (computed 67.0 MiB so far)
+26/04/24 22:30:27 WARN MemoryStore: Not enough space to cache rdd_92_3 in memory! (computed 128.9 MiB so far)
+26/04/24 22:30:27 WARN MemoryStore: Not enough space to cache rdd_92_6 in memory! (computed 127.4 MiB so far)
+26/04/24 22:30:31 WARN MemoryStore: Not enough space to cache rdd_92_0 in memory! (computed 257.0 MiB so far)
+26/04/24 22:30:31 WARN MemoryStore: Not enough space to cache rdd_92_0 in memory! (computed 67.0 MiB so far)
+26/04/24 22:30:31 WARN MemoryStore: Not enough space to cache rdd_92_3 in memory! (computed 128.9 MiB so far)
+26/04/24 22:30:31 WARN MemoryStore: Not enough space to cache rdd_92_6 in memory! (computed 127.4 MiB so far)
+26/04/24 22:30:35 WARN MemoryStore: Not enough space to cache rdd_92_0 in memory! (computed 257.0 MiB so far)
+26/04/24 22:30:35 WARN MemoryStore: Not enough space to cache rdd_92_3 in memory! (computed 66.9 MiB so far)
+26/04/24 22:30:35 WARN MemoryStore: Not enough space to cache rdd_92_6 in memory! (computed 127.4 MiB so far)
+26/04/24 22:30:35 WARN MemoryStore: Not enough space to cache rdd_92_0 in memory! (computed 129.9 MiB so far)
+26/04/24 22:30:39 WARN MemoryStore: Not enough space to cache rdd_92_0 in memory! (computed 257.0 MiB so far)
+26/04/24 22:30:39 WARN MemoryStore: Not enough space to cache rdd_92_6 in memory! (computed 65.8 MiB so far)
+26/04/24 22:30:39 WARN MemoryStore: Not enough space to cache rdd_92_3 in memory! (computed 128.9 MiB so far)
+26/04/24 22:30:39 WARN MemoryStore: Not enough space to cache rdd_92_0 in memory! (computed 129.9 MiB so far)
+26/04/24 22:30:44 WARN MemoryStore: Not enough space to cache rdd_92_0 in memory! (computed 257.0 MiB so far)
+26/04/24 22:30:44 WARN MemoryStore: Not enough space to cache rdd_92_6 in memory! (computed 65.8 MiB so far)
+26/04/24 22:30:44 WARN MemoryStore: Not enough space to cache rdd_92_3 in memory! (computed 128.9 MiB so far)
+26/04/24 22:30:44 WARN MemoryStore: Not enough space to cache rdd_92_0 in memory! (computed 129.9 MiB so far)
+26/04/24 22:30:48 WARN MemoryStore: Not enough space to cache rdd_92_0 in memory! (computed 257.0 MiB so far)
+26/04/24 22:30:48 WARN MemoryStore: Not enough space to cache rdd_92_6 in memory! (computed 65.8 MiB so far)
+26/04/24 22:30:48 WARN MemoryStore: Not enough space to cache rdd_92_3 in memory! (computed 128.9 MiB so far)
+26/04/24 22:30:48 WARN MemoryStore: Not enough space to cache rdd_92_0 in memory! (computed 129.9 MiB so far)
+26/04/24 22:30:52 WARN MemoryStore: Not enough space to cache rdd_92_0 in memory! (computed 257.0 MiB so far)
+26/04/24 22:30:53 WARN MemoryStore: Not enough space to cache rdd_92_6 in memory! (computed 65.8 MiB so far)
+26/04/24 22:30:53 WARN MemoryStore: Not enough space to cache rdd_92_3 in memory! (computed 128.9 MiB so far)
+26/04/24 22:30:53 WARN MemoryStore: Not enough space to cache rdd_92_0 in memory! (computed 129.9 MiB so far)
+26/04/24 22:30:56 WARN MemoryStore: Not enough space to cache rdd_92_0 in memory! (computed 257.0 MiB so far)
+26/04/24 22:30:57 WARN MemoryStore: Not enough space to cache rdd_92_6 in memory! (computed 65.8 MiB so far)
+26/04/24 22:30:57 WARN MemoryStore: Not enough space to cache rdd_92_3 in memory! (computed 128.9 MiB so far)
+26/04/24 22:30:57 WARN MemoryStore: Not enough space to cache rdd_92_0 in memory! (computed 129.9 MiB so far)
+26/04/24 22:31:00 WARN MemoryStore: Not enough space to cache rdd_92_0 in memory! (computed 257.0 MiB so far)
+26/04/24 22:31:00 WARN MemoryStore: Not enough space to cache rdd_92_6 in memory! (computed 65.8 MiB so far)
+26/04/24 22:31:01 WARN MemoryStore: Not enough space to cache rdd_92_0 in memory! (computed 129.9 MiB so far)
+26/04/24 22:31:01 WARN MemoryStore: Not enough space to cache rdd_92_3 in memory! (computed 128.9 MiB so far)
+26/04/24 22:31:05 WARN MemoryStore: Not enough space to cache rdd_92_0 in memory! (computed 257.0 MiB so far)
+26/04/24 22:31:05 WARN MemoryStore: Not enough space to cache rdd_92_6 in memory! (computed 65.8 MiB so far)
+26/04/24 22:31:06 WARN MemoryStore: Not enough space to cache rdd_92_0 in memory! (computed 129.9 MiB so far)
+26/04/24 22:31:06 WARN MemoryStore: Not enough space to cache rdd_92_3 in memory! (computed 128.9 MiB so far)
+26/04/24 22:31:10 WARN MemoryStore: Not enough space to cache rdd_92_0 in memory! (computed 257.0 MiB so far)
+26/04/24 22:31:10 WARN MemoryStore: Not enough space to cache rdd_92_3 in memory! (computed 66.9 MiB so far)
+26/04/24 22:31:10 WARN MemoryStore: Not enough space to cache rdd_92_6 in memory! (computed 127.4 MiB so far)
+26/04/24 22:31:10 WARN MemoryStore: Not enough space to cache rdd_92_0 in memory! (computed 129.9 MiB so far)
+26/04/24 22:31:13 WARN MemoryStore: Not enough space to cache rdd_92_0 in memory! (computed 257.0 MiB so far)
+26/04/24 22:31:14 WARN MemoryStore: Not enough space to cache rdd_92_0 in memory! (computed 67.0 MiB so far)
+26/04/24 22:31:14 WARN MemoryStore: Not enough space to cache rdd_92_3 in memory! (computed 128.9 MiB so far)
+26/04/24 22:31:14 WARN MemoryStore: Not enough space to cache rdd_92_6 in memory! (computed 127.4 MiB so far)
+26/04/24 22:31:17 WARN MemoryStore: Not enough space to cache rdd_92_0 in memory! (computed 257.0 MiB so far)
+26/04/24 22:31:18 WARN MemoryStore: Not enough space to cache rdd_92_0 in memory! (computed 67.0 MiB so far)
+26/04/24 22:31:18 WARN MemoryStore: Not enough space to cache rdd_92_6 in memory! (computed 127.4 MiB so far)
+26/04/24 22:31:18 WARN MemoryStore: Not enough space to cache rdd_92_3 in memory! (computed 128.9 MiB so far)
+26/04/24 22:31:22 WARN MemoryStore: Not enough space to cache rdd_92_0 in memory! (computed 257.0 MiB so far)
+26/04/24 22:31:22 WARN MemoryStore: Not enough space to cache rdd_92_3 in memory! (computed 66.9 MiB so far)
+26/04/24 22:31:22 WARN MemoryStore: Not enough space to cache rdd_92_0 in memory! (computed 129.9 MiB so far)
+26/04/24 22:31:22 WARN MemoryStore: Not enough space to cache rdd_92_6 in memory! (computed 127.4 MiB so far)
+26/04/24 22:31:25 WARN MemoryStore: Not enough space to cache rdd_92_0 in memory! (computed 257.0 MiB so far)
+26/04/24 22:31:25 WARN MemoryStore: Not enough space to cache rdd_92_0 in memory! (computed 67.0 MiB so far)
+26/04/24 22:31:25 WARN MemoryStore: Not enough space to cache rdd_92_3 in memory! (computed 128.9 MiB so far)
+26/04/24 22:31:25 WARN MemoryStore: Not enough space to cache rdd_92_6 in memory! (computed 127.4 MiB so far)
+26/04/24 22:31:29 WARN MemoryStore: Not enough space to cache rdd_92_0 in memory! (computed 257.0 MiB so far)
+26/04/24 22:31:29 WARN MemoryStore: Not enough space to cache rdd_92_3 in memory! (computed 66.9 MiB so far)
+26/04/24 22:31:29 WARN MemoryStore: Not enough space to cache rdd_92_6 in memory! (computed 127.4 MiB so far)
+26/04/24 22:31:29 WARN MemoryStore: Not enough space to cache rdd_92_0 in memory! (computed 129.9 MiB so far)
+26/04/24 22:31:33 WARN MemoryStore: Not enough space to cache rdd_92_0 in memory! (computed 257.0 MiB so far)
+26/04/24 22:31:33 WARN MemoryStore: Not enough space to cache rdd_92_6 in memory! (computed 65.8 MiB so far)
+26/04/24 22:31:33 WARN MemoryStore: Not enough space to cache rdd_92_3 in memory! (computed 128.9 MiB so far)
+26/04/24 22:31:33 WARN MemoryStore: Not enough space to cache rdd_92_0 in memory! (computed 129.9 MiB so far)
+26/04/24 22:31:37 WARN MemoryStore: Not enough space to cache rdd_92_0 in memory! (computed 257.0 MiB so far)
+26/04/24 22:31:37 WARN MemoryStore: Not enough space to cache rdd_92_6 in memory! (computed 65.8 MiB so far)
+26/04/24 22:31:37 WARN MemoryStore: Not enough space to cache rdd_92_3 in memory! (computed 128.9 MiB so far)
+26/04/24 22:31:37 WARN MemoryStore: Not enough space to cache rdd_92_0 in memory! (computed 129.9 MiB so far)
+26/04/24 22:31:41 WARN MemoryStore: Not enough space to cache rdd_92_0 in memory! (computed 257.0 MiB so far)
+26/04/24 22:31:41 WARN MemoryStore: Not enough space to cache rdd_92_3 in memory! (computed 66.9 MiB so far)
+26/04/24 22:31:41 WARN MemoryStore: Not enough space to cache rdd_92_0 in memory! (computed 129.9 MiB so far)
+26/04/24 22:31:41 WARN MemoryStore: Not enough space to cache rdd_92_6 in memory! (computed 127.4 MiB so far)
+26/04/24 22:31:45 WARN MemoryStore: Not enough space to cache rdd_92_0 in memory! (computed 257.0 MiB so far)
+26/04/24 22:31:45 WARN MemoryStore: Not enough space to cache rdd_92_3 in memory! (computed 66.9 MiB so far)
+26/04/24 22:31:45 WARN MemoryStore: Not enough space to cache rdd_92_0 in memory! (computed 129.9 MiB so far)
+26/04/24 22:31:45 WARN MemoryStore: Not enough space to cache rdd_92_6 in memory! (computed 127.4 MiB so far)
+26/04/24 22:31:48 WARN MemoryStore: Not enough space to cache rdd_92_0 in memory! (computed 257.0 MiB so far)
+26/04/24 22:31:49 WARN MemoryStore: Not enough space to cache rdd_92_3 in memory! (computed 66.9 MiB so far)
+26/04/24 22:31:49 WARN MemoryStore: Not enough space to cache rdd_92_6 in memory! (computed 127.4 MiB so far)
+26/04/24 22:31:49 WARN MemoryStore: Not enough space to cache rdd_92_0 in memory! (computed 129.9 MiB so far)
+26/04/24 22:31:52 WARN MemoryStore: Not enough space to cache rdd_92_0 in memory! (computed 257.0 MiB so far)
+26/04/24 22:31:53 WARN MemoryStore: Not enough space to cache rdd_92_6 in memory! (computed 65.8 MiB so far)
+26/04/24 22:31:53 WARN MemoryStore: Not enough space to cache rdd_92_3 in memory! (computed 128.9 MiB so far)
+26/04/24 22:31:53 WARN MemoryStore: Not enough space to cache rdd_92_0 in memory! (computed 129.9 MiB so far)
+26/04/24 22:31:56 WARN MemoryStore: Not enough space to cache rdd_92_0 in memory! (computed 257.0 MiB so far)
+26/04/24 22:31:56 WARN MemoryStore: Not enough space to cache rdd_92_3 in memory! (computed 66.9 MiB so far)
+26/04/24 22:31:56 WARN MemoryStore: Not enough space to cache rdd_92_6 in memory! (computed 127.4 MiB so far)
+26/04/24 22:31:56 WARN MemoryStore: Not enough space to cache rdd_92_0 in memory! (computed 129.9 MiB so far)
+26/04/24 22:32:00 WARN MemoryStore: Not enough space to cache rdd_92_0 in memory! (computed 257.0 MiB so far)
+26/04/24 22:32:00 WARN MemoryStore: Not enough space to cache rdd_92_0 in memory! (computed 67.0 MiB so far)
+26/04/24 22:32:00 WARN MemoryStore: Not enough space to cache rdd_92_6 in memory! (computed 127.4 MiB so far)
+26/04/24 22:32:00 WARN MemoryStore: Not enough space to cache rdd_92_3 in memory! (computed 128.9 MiB so far)
+26/04/24 22:32:03 WARN MemoryStore: Not enough space to cache rdd_92_0 in memory! (computed 257.0 MiB so far)
+26/04/24 22:32:03 WARN MemoryStore: Not enough space to cache rdd_92_0 in memory! (computed 67.0 MiB so far)
+26/04/24 22:32:04 WARN MemoryStore: Not enough space to cache rdd_92_3 in memory! (computed 128.9 MiB so far)
+26/04/24 22:32:04 WARN MemoryStore: Not enough space to cache rdd_92_6 in memory! (computed 127.4 MiB so far)
+26/04/24 22:32:07 WARN MemoryStore: Not enough space to cache rdd_92_0 in memory! (computed 257.0 MiB so far)
+26/04/24 22:32:08 WARN MemoryStore: Not enough space to cache rdd_92_0 in memory! (computed 67.0 MiB so far)
+26/04/24 22:32:08 WARN MemoryStore: Not enough space to cache rdd_92_6 in memory! (computed 127.4 MiB so far)
+26/04/24 22:32:08 WARN MemoryStore: Not enough space to cache rdd_92_3 in memory! (computed 128.9 MiB so far)
+26/04/24 22:32:11 WARN MemoryStore: Not enough space to cache rdd_92_0 in memory! (computed 257.0 MiB so far)
+26/04/24 22:32:11 WARN MemoryStore: Not enough space to cache rdd_92_3 in memory! (computed 66.9 MiB so far)
+26/04/24 22:32:11 WARN MemoryStore: Not enough space to cache rdd_92_0 in memory! (computed 129.9 MiB so far)
+26/04/24 22:32:11 WARN MemoryStore: Not enough space to cache rdd_92_6 in memory! (computed 127.4 MiB so far)
+26/04/24 22:32:15 WARN MemoryStore: Not enough space to cache rdd_92_0 in memory! (computed 257.0 MiB so far)
+26/04/24 22:32:15 WARN MemoryStore: Not enough space to cache rdd_92_0 in memory! (computed 67.0 MiB so far)
+26/04/24 22:32:15 WARN MemoryStore: Not enough space to cache rdd_92_6 in memory! (computed 127.4 MiB so far)
+26/04/24 22:32:15 WARN MemoryStore: Not enough space to cache rdd_92_3 in memory! (computed 128.9 MiB so far)
+26/04/24 22:32:19 WARN MemoryStore: Not enough space to cache rdd_92_0 in memory! (computed 257.0 MiB so far)
+26/04/24 22:32:19 WARN MemoryStore: Not enough space to cache rdd_92_3 in memory! (computed 66.9 MiB so far)
+26/04/24 22:32:19 WARN MemoryStore: Not enough space to cache rdd_92_0 in memory! (computed 129.9 MiB so far)
+26/04/24 22:32:19 WARN MemoryStore: Not enough space to cache rdd_92_6 in memory! (computed 127.4 MiB so far)
+26/04/24 22:32:23 WARN MemoryStore: Not enough space to cache rdd_92_0 in memory! (computed 257.0 MiB so far)
+26/04/24 22:32:23 WARN MemoryStore: Not enough space to cache rdd_92_0 in memory! (computed 67.0 MiB so far)
+26/04/24 22:32:23 WARN MemoryStore: Not enough space to cache rdd_92_3 in memory! (computed 128.9 MiB so far)
+26/04/24 22:32:23 WARN MemoryStore: Not enough space to cache rdd_92_6 in memory! (computed 127.4 MiB so far)
+26/04/24 22:32:26 WARN MemoryStore: Not enough space to cache rdd_92_0 in memory! (computed 257.0 MiB so far)
+26/04/24 22:32:26 WARN MemoryStore: Not enough space to cache rdd_92_3 in memory! (computed 66.9 MiB so far)
+26/04/24 22:32:26 WARN MemoryStore: Not enough space to cache rdd_92_0 in memory! (computed 129.9 MiB so far)
+26/04/24 22:32:26 WARN MemoryStore: Not enough space to cache rdd_92_6 in memory! (computed 127.4 MiB so far)
+26/04/24 22:32:30 WARN MemoryStore: Not enough space to cache rdd_92_0 in memory! (computed 257.0 MiB so far)
+26/04/24 22:32:30 WARN MemoryStore: Not enough space to cache rdd_92_3 in memory! (computed 66.9 MiB so far)
+26/04/24 22:32:30 WARN MemoryStore: Not enough space to cache rdd_92_6 in memory! (computed 127.4 MiB so far)
+26/04/24 22:32:30 WARN MemoryStore: Not enough space to cache rdd_92_0 in memory! (computed 129.9 MiB so far)
+26/04/24 22:32:34 WARN MemoryStore: Not enough space to cache rdd_92_0 in memory! (computed 257.0 MiB so far)
+26/04/24 22:32:35 WARN MemoryStore: Not enough space to cache rdd_92_6 in memory! (computed 65.8 MiB so far)
+26/04/24 22:32:35 WARN MemoryStore: Not enough space to cache rdd_92_0 in memory! (computed 129.9 MiB so far)
+26/04/24 22:32:35 WARN MemoryStore: Not enough space to cache rdd_92_3 in memory! (computed 128.9 MiB so far)
+26/04/24 22:32:38 WARN MemoryStore: Not enough space to cache rdd_92_0 in memory! (computed 257.0 MiB so far)
+26/04/24 22:32:39 WARN MemoryStore: Not enough space to cache rdd_92_3 in memory! (computed 66.9 MiB so far)
+26/04/24 22:32:39 WARN MemoryStore: Not enough space to cache rdd_92_0 in memory! (computed 129.9 MiB so far)
+26/04/24 22:32:39 WARN MemoryStore: Not enough space to cache rdd_92_6 in memory! (computed 127.4 MiB so far)
+26/04/24 22:32:42 WARN MemoryStore: Not enough space to cache rdd_92_0 in memory! (computed 257.0 MiB so far)
+26/04/24 22:32:42 WARN MemoryStore: Not enough space to cache rdd_92_3 in memory! (computed 66.9 MiB so far)
+26/04/24 22:32:42 WARN MemoryStore: Not enough space to cache rdd_92_0 in memory! (computed 129.9 MiB so far)
+26/04/24 22:32:42 WARN MemoryStore: Not enough space to cache rdd_92_6 in memory! (computed 127.4 MiB so far)
+26/04/24 22:32:45 WARN MemoryStore: Not enough space to cache rdd_92_0 in memory! (computed 257.0 MiB so far)
+26/04/24 22:32:46 WARN MemoryStore: Not enough space to cache rdd_92_3 in memory! (computed 66.9 MiB so far)
+26/04/24 22:32:46 WARN MemoryStore: Not enough space to cache rdd_92_0 in memory! (computed 129.9 MiB so far)
+26/04/24 22:32:46 WARN MemoryStore: Not enough space to cache rdd_92_6 in memory! (computed 127.4 MiB so far)
+26/04/24 22:32:49 WARN MemoryStore: Not enough space to cache rdd_92_0 in memory! (computed 257.0 MiB so far)
+26/04/24 22:32:49 WARN MemoryStore: Not enough space to cache rdd_92_3 in memory! (computed 66.9 MiB so far)
+26/04/24 22:32:49 WARN MemoryStore: Not enough space to cache rdd_92_0 in memory! (computed 129.9 MiB so far)
+26/04/24 22:32:49 WARN MemoryStore: Not enough space to cache rdd_92_6 in memory! (computed 127.4 MiB so far)
+26/04/24 22:32:53 WARN MemoryStore: Not enough space to cache rdd_92_0 in memory! (computed 257.0 MiB so far)
+26/04/24 22:32:53 WARN MemoryStore: Not enough space to cache rdd_92_3 in memory! (computed 66.9 MiB so far)
+26/04/24 22:32:53 WARN MemoryStore: Not enough space to cache rdd_92_0 in memory! (computed 129.9 MiB so far)
+26/04/24 22:32:53 WARN MemoryStore: Not enough space to cache rdd_92_6 in memory! (computed 127.4 MiB so far)
+26/04/24 22:32:57 WARN MemoryStore: Not enough space to cache rdd_92_0 in memory! (computed 257.0 MiB so far)
+26/04/24 22:32:57 WARN MemoryStore: Not enough space to cache rdd_92_6 in memory! (computed 65.8 MiB so far)
+26/04/24 22:32:57 WARN MemoryStore: Not enough space to cache rdd_92_0 in memory! (computed 129.9 MiB so far)
+26/04/24 22:32:57 WARN MemoryStore: Not enough space to cache rdd_92_3 in memory! (computed 128.9 MiB so far)
+26/04/24 22:33:01 WARN MemoryStore: Not enough space to cache rdd_92_0 in memory! (computed 257.0 MiB so far)
+26/04/24 22:33:01 WARN MemoryStore: Not enough space to cache rdd_92_6 in memory! (computed 65.8 MiB so far)
+26/04/24 22:33:01 WARN MemoryStore: Not enough space to cache rdd_92_3 in memory! (computed 128.9 MiB so far)
+26/04/24 22:33:01 WARN MemoryStore: Not enough space to cache rdd_92_0 in memory! (computed 129.9 MiB so far)
+
+🎵 DISCOVERED LYRICAL THEMES 🎵
+========================================
+
+Topic 1:
+  m               0.0198 █
+  ll              0.0174 █
+  chorus          0.0150 █
+  ve              0.0141 █
+  re              0.0121 █
+  away            0.0117 █
+  never           0.0116 █
+  verse           0.0114 █
+
+Topic 2:
+  la              0.0411 ████
+  yeah            0.0397 ███
+  m               0.0363 ███
+  like            0.0236 ██
+  uh              0.0226 ██
+  money           0.0196 █
+  cash            0.0164 █
+  got             0.0153 █
+
+Topic 3:
+  love            0.0856 ████████
+  ooh             0.0279 ██
+  like            0.0167 █
+  one             0.0149 █
+  heart           0.0142 █
+  chorus          0.0103 █
+  man             0.0098 
+  never           0.0087 
+
+Topic 4:
+  m               0.0277 ██
+  like            0.0213 ██
+  got             0.0188 █
+  nigga           0.0166 █
+  bitch           0.0156 █
+  ain             0.0151 █
+  get             0.0148 █
+  shit            0.0143 █
+
+Topic 5:
+  na              0.0219 ██
+  chorus          0.0178 █
+  da              0.0138 █
+  us              0.0124 █
+  verse           0.0120 █
+  god             0.0114 █
+  night           0.0113 █
+  let             0.0109 █
+
+Topic 6:
+  m               0.0160 █
+  like            0.0154 █
+  get             0.0110 █
+  re              0.0085 
+  verse           0.0080 
+  got             0.0075 
+  ll              0.0064 
+  one             0.0063 
+
+Topic 7:
+  ah              0.0394 ███
+  mi              0.0164 █
+  dem             0.0141 █
+  yuh             0.0110 █
+  di              0.0103 █
+  go              0.0099 
+  like            0.0085 
+  say             0.0085 
+
+Topic 8:
+  m               0.0332 ███
+  know            0.0299 ██
+  baby            0.0196 █
+  re              0.0190 █
+  chorus          0.0175 █
+  want            0.0161 █
+  love            0.0152 █
+  like            0.0152 █
+
+Topic 9:
+  oh              0.1551 ███████████████
+  yeah            0.0839 ████████
+  hey             0.0244 ██
+  m               0.0186 █
+  got             0.0162 █
+  chorus          0.0151 █
+  whoa            0.0104 █
+  ya              0.0099 
+
+Topic 10:
+  m               0.0237 ██
+  go              0.0169 █
+  back            0.0161 █
+  know            0.0123 █
+  come            0.0123 █
+  get             0.0111 █
+  got             0.0110 █
+  gotta           0.0100 
+
+Topic modeling time: 256.27s
+
+============================================================
+STEP 4: Hit Song Lyrics Analysis
+============================================================
+
+Words that distinguish hit songs:
+
+Hit rate by genre:
+26/04/24 22:33:05 WARN MemoryStore: Not enough space to cache rdd_92_0 in memory! (computed 67.0 MiB so far)
+26/04/24 22:33:05 WARN MemoryStore: Not enough space to cache rdd_92_3 in memory! (computed 66.9 MiB so far)
+26/04/24 22:33:06 WARN MemoryStore: Not enough space to cache rdd_92_6 in memory! (computed 317.3 MiB so far)
++-----------------------------------------+-----+--------+--------------+
+|Genre                                    |total|hit_rate|avg_popularity|
++-----------------------------------------+-----+--------+--------------+
+|progressive rock,heavy metal,thrash metal|191  |94.24   |60.15         |
+|rock,industrial,heavy metal              |83   |92.77   |70.81         |
+|alternative rock,folk,indie pop          |130  |90.0    |69.12         |
+|rock,pop rock,alt-country                |63   |87.3    |67.63         |
+|electropop,k-pop,trap                    |90   |82.22   |68.08         |
+|electronic,pop,chillwave                 |72   |81.94   |76.0          |
+|j-pop,k-pop                              |125  |79.2    |64.24         |
+|trap,hip hop,rap                         |553  |75.77   |64.13         |
+|funk,soul,gospel                         |41   |75.61   |58.63         |
+|hip hop,emo rap,rap                      |92   |75.0    |73.43         |
++-----------------------------------------+-----+--------+--------------+
+only showing top 10 rows
+
+
+Lyrics length analysis:
+26/04/24 22:33:07 WARN MemoryStore: Not enough space to cache rdd_92_3 in memory! (computed 66.9 MiB so far)
+26/04/24 22:33:07 WARN MemoryStore: Not enough space to cache rdd_92_6 in memory! (computed 65.8 MiB so far)
+26/04/24 22:33:08 WARN MemoryStore: Not enough space to cache rdd_92_8 in memory! (computed 184.9 MiB so far)
+26/04/24 22:33:08 WARN MemoryStore: Not enough space to cache rdd_92_0 in memory! (computed 448.3 MiB so far)
++----------------------+------+--------------+--------+
+|lyrics_length_category| count|avg_popularity|hit_rate|
++----------------------+------+--------------+--------+
+|                  long|120964|         32.23|    7.89|
+|                medium| 99244|          30.9|    7.67|
+|                 short| 22433|         31.28|    7.66|
+|             very_long|217906|         32.71|    9.71|
++----------------------+------+--------------+--------+
+
+Lyrics analysis time: 4.03s
+
+============================================================
+STEP 5: Audio Feature Analysis & Hit Prediction
+============================================================
+
+Feature correlations with popularity:
+  Danceability              +0.1078
+  Energy                    +0.0506
+  Positiveness              +0.0858
+  Acousticness              -0.0615
+  Instrumentalness          -0.0385
+  Liveness                  -0.0540
+  Speechiness               -0.0738
+  Tempo                     +0.0042
+
+Audio Features: Hit vs Non-Hit Comparison:
+  Danceability              Non-Hit: 57.91 | Hit: 63.17 (↑5.25)
+  Energy                    Non-Hit: 62.26 | Hit: 63.73 (↑1.48)
+  Positiveness              Non-Hit: 46.76 | Hit: 50.48 (↑3.72)
+  Acousticness              Non-Hit: 26.39 | Hit: 22.72 (↓3.67)
+  Instrumentalness          Non-Hit: 7.87 | Hit: 4.75 (↓3.12)
+  Liveness                  Non-Hit: 19.59 | Hit: 18.32 (↓1.27)
+  Speechiness               Non-Hit: 10.71 | Hit: 10.41 (↓0.30)
+  Tempo                     Non-Hit: 120.67 | Hit: 120.64 (↓0.03)
+
+Training Hit Song Predictor...
+26/04/24 22:44:54 WARN DAGScheduler: Broadcasting large task binary with size 1021.9 KiB
+26/04/24 22:44:56 WARN DAGScheduler: Broadcasting large task binary with size 1879.4 KiB
+26/04/24 22:44:59 WARN DAGScheduler: Broadcasting large task binary with size 3.5 MiB
+26/04/24 22:45:03 WARN DAGScheduler: Broadcasting large task binary with size 6.3 MiB
+26/04/24 22:45:07 WARN DAGScheduler: Broadcasting large task binary with size 1687.2 KiB
+26/04/24 22:45:08 WARN DAGScheduler: Broadcasting large task binary with size 11.0 MiB
+26/04/24 22:45:14 WARN DAGScheduler: Broadcasting large task binary with size 2.6 MiB
+26/04/24 22:45:16 WARN DAGScheduler: Broadcasting large task binary with size 5.3 MiB
+26/04/24 22:46:32 WARN DAGScheduler: Broadcasting large task binary with size 5.3 MiB
+Model Performance:
+  AUC: 0.7557
+  Accuracy: 0.9148
+
+Most Important Features for Predicting Hits:
+  1. Danceability              0.1921 ███████████████████
+  2. Positiveness              0.1344 █████████████
+  3. Tempo                     0.1260 ████████████
+  4. Speechiness               0.1246 ████████████
+  5. Liveness                  0.1202 ████████████
+  6. Energy                    0.1167 ███████████
+  7. Acousticness              0.1122 ███████████
+  8. Instrumentalness          0.0738 ███████
+Audio analysis time: 961.12s
+
+============================================================
+STEP 6: Song Clustering
+============================================================
+Clustering into 6 song archetypes...
+
+📊 SONG ARCHETYPES DISCOVERED:
++----------+------+--------------+------------+------+------------+-----+--------+
+|prediction|size  |avg_popularity|danceability|energy|positiveness|tempo|hit_rate|
++----------+------+--------------+------------+------+------------+-----+--------+
+|0         |50900 |32.6          |78.2        |66.0  |58.7        |118.0|10.8    |
+|1         |112435|35.2          |67.9        |70.6  |74.8        |121.0|10.9    |
+|2         |88342 |32.7          |62.2        |55.4  |30.8        |118.0|10.9    |
+|3         |82213 |29.8          |47.8        |30.5  |31.5        |113.0|6.0     |
+|4         |30089 |27.1          |61.4        |62.8  |49.1        |120.0|6.7     |
+|5         |96568 |31.3          |41.3        |84.4  |36.3        |131.0|5.9     |
++----------+------+--------------+------------+------+------------+-----+--------+
+
+
+Top songs from Best Archetype (Cluster 1):
++--------------+-------------------------+----------+--------------+
+|song          |Artist(s)                |Popularity|Genre         |
++--------------+-------------------------+----------+--------------+
+|Wildside      |Sabrina Carpenter        |99.0      |pop,electropop|
+|Swing My Way  |Sabrina Carpenter        |99.0      |pop,electropop|
+|I Cant Stop Me|Sabrina Carpenter        |99.0      |pop,electropop|
+|U             |Sabrina Carpenter        |99.0      |pop,electropop|
+|Alien         |Sabrina Carpenter        |99.0      |pop,electropop|
+|Alien Acoustic|Sabrina Carpenter        |98.0      |pop,electropop|
+|Wife          |Sabrina Carpenter        |98.0      |pop,electropop|
+|Smile         |Sabrina Carpenter        |98.0      |pop,electropop|
+|About a Girl  |Post Malone,Morgan Wallen|95.0      |hip hop       |
+|About a Girl  |Post Malone,Morgan Wallen|95.0      |hip hop       |
++--------------+-------------------------+----------+--------------+
+only showing top 10 rows
+
+Clustering time: 168.79s
+
+============================================================
+STEP 7: Saving Results
+============================================================
+  Decade trends saved
+  Genre analysis saved
+  Lyrical themes saved
+  Feature comparison saved
+
+  All results saved to: /mnt/vstor/courses/csds312/bkl46/Proj/output
+
+============================================================
+🎵 PROJECT SUMMARY: WHAT MAKES A HIT SONG? 🎵
+============================================================
+
+Dataset: 460,547 songs analyzed in parallel using Spark
+Hit songs: 40,031 (8.7%)
+
+📊 KEY FINDINGS:
+  Best genre: folk,country,soul (100.0% hit rate)
+  Hit songs have higher Danceability (63.2 vs 57.9)
+  Hit songs have higher Energy (63.7 vs 62.3)
+  Hit songs have higher Positiveness (50.5 vs 46.8)
+
+⏱ Total execution time: 35.5 minutes
+⚡ Processing speed: 216 songs/second
+
+✓ Spark session stopped

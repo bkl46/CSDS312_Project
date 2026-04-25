@@ -1,0 +1,9 @@
+Feature,Non-Hit Avg,Hit Avg,Difference
+Danceability,57.91,63.17,+5.25
+Energy,62.26,63.73,+1.48
+Positiveness,46.76,50.48,+3.72
+Acousticness,26.39,22.72,-3.67
+Instrumentalness,7.87,4.75,-3.12
+Liveness,19.59,18.32,-1.27
+Speechiness,10.71,10.41,-0.30
+Tempo,120.67,120.64,-0.03
