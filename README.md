@@ -43,3 +43,13 @@ The script can be run with arguments,
 - --input "path_to_alternative_data", if we need to run on other data
 - --skip_lang_detect <True/False>, if True, will group songs by language
 - --output "path_to_alternative_output_destination"
+
+### Primary analysis
+
+enter notebooks/ directory
+
+from root: \
+cd notebooks/ \
+spark-submit --master yarn --deploy-mode cluster main.py \
+
+outputs can be found in output/
